@@ -1,0 +1,54 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\conno\\Documents\\INFT6009\\INFT6009\\INFT6009\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{C907DFDB-3F2F-4801-8297-4DCB287C36A7}|INFT6009\\INFT6009.csproj|c:\\users\\conno\\documents\\inft6009\\inft6009\\inft6009\\inft6009\\mainpage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{C907DFDB-3F2F-4801-8297-4DCB287C36A7}|INFT6009\\INFT6009.csproj|solutionrelative:inft6009\\mainpage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C907DFDB-3F2F-4801-8297-4DCB287C36A7}|INFT6009\\INFT6009.csproj|c:\\users\\conno\\documents\\inft6009\\inft6009\\inft6009\\inft6009\\pages\\addquestpage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{C907DFDB-3F2F-4801-8297-4DCB287C36A7}|INFT6009\\INFT6009.csproj|solutionrelative:inft6009\\pages\\addquestpage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 1,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "AddQuestPage.xaml",
+              "DocumentMoniker": "C:\\Users\\conno\\Documents\\INFT6009\\INFT6009\\INFT6009\\INFT6009\\Pages\\AddQuestPage.xaml",
+              "RelativeDocumentMoniker": "INFT6009\\Pages\\AddQuestPage.xaml",
+              "ToolTip": "C:\\Users\\conno\\Documents\\INFT6009\\INFT6009\\INFT6009\\INFT6009\\Pages\\AddQuestPage.xaml",
+              "RelativeToolTip": "INFT6009\\Pages\\AddQuestPage.xaml",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAkAAAApAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2024-05-01T04:42:11.267Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "MainPage.xaml",
+              "DocumentMoniker": "C:\\Users\\conno\\Documents\\INFT6009\\INFT6009\\INFT6009\\INFT6009\\MainPage.xaml",
+              "RelativeDocumentMoniker": "INFT6009\\MainPage.xaml",
+              "ToolTip": "C:\\Users\\conno\\Documents\\INFT6009\\INFT6009\\INFT6009\\INFT6009\\MainPage.xaml",
+              "RelativeToolTip": "INFT6009\\MainPage.xaml",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAB4AAAAqAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2024-05-01T03:21:33.032Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
