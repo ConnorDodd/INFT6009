@@ -1,0 +1,36 @@
+﻿using CommunityToolkit.Maui;
+using CommunityToolkit.Maui.Maps;
+using Microsoft.Extensions.Logging;
+
+namespace INFT6009
+{
+    public static class MauiProgram
+    {
+        public static MauiApp CreateMauiApp()
+        {
+            var builder = MauiApp.CreateBuilder();
+            builder
+                .UseMauiApp<App>()
+                .UseMauiCommunityToolkit()
+                .UseMauiCommunityToolkitMaps("Aq83c0GHHFQfuMmnLViPpXasGZV_3BM0heQwyov9aelj9R1uOtNwF6yBG3-p5gtK")
+                .ConfigureEssentials(essentials =>
+                {
+                    essentials.UseMapServiceToken("Aq83c0GHHFQfuMmnLViPpXasGZV_3BM0heQwyov9aelj9R1uOtNwF6yBG3-p5gtK");
+                })
+                .ConfigureFonts(fonts =>
+                {
+                    fonts.AddFont("blackchancery.regular.ttf", "BlackChancery");
+                    fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
+                    fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
+                });
+                
+            //.UseMauiMaps();
+
+#if DEBUG
+            builder.Logging.AddDebug();
+#endif
+
+            return builder.Build();
+        }
+    }
+}

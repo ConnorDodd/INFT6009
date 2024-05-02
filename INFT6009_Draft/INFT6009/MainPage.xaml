@@ -1,0 +1,93 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="INFT6009.MainPage"
+             xmlns:maps="clr-namespace:Microsoft.Maui.Controls.Maps;assembly=Microsoft.Maui.Controls.Maps"
+             Shell.BackgroundColor="{StaticResource Background}">
+             <!--xmlns:maps="http://schemas.microsoft.com/dotnet/2021/maui/maps"-->
+    <Shell.TitleView>
+        <HorizontalStackLayout
+            Style="{StaticResource HeaderLayout}">
+            <Label
+                Style="{StaticResource HeaderLabel}"
+                Text="Fetch"/>
+        </HorizontalStackLayout>
+    </Shell.TitleView>
+    <ContentPage.ToolbarItems>
+        <ToolbarItem
+            IconImageSource="settingsp.png"
+            Clicked="SettingsToolbarItem_Clicked" />
+    </ContentPage.ToolbarItems>
+    
+    <Grid
+        Style="{StaticResource BodyLayout}"
+        VerticalOptions="Fill">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <maps:Map
+            Grid.Row="0"
+            x:Name="MapControl"
+            HorizontalOptions="FillAndExpand"
+            IsShowingUser="True"
+            HeightRequest="{Binding Source={RelativeSource Self}, Path=Width}"/>
+
+        <Frame
+            Grid.Row="1"
+            Margin="0, 10, 0, 0"
+            BackgroundColor="White"
+            BorderColor="Grey"
+            VerticalOptions="FillAndExpand">
+            
+            <RefreshView
+                BackgroundColor="White"
+                Refreshing="RefreshView_Refreshing"
+                IsRefreshing="{Binding IsRefreshing}">
+                
+                <ScrollView>
+                    <VerticalStackLayout
+                        BindableLayout.ItemsSource="{Binding Quests}">
+                        <BindableLayout.EmptyView>
+                            <StackLayout>
+                                <Label
+                                    Text="There is no current quests to display"
+                                    Style="{StaticResource ErrorLabel}"/>
+                            </StackLayout>
+                        </BindableLayout.EmptyView>
+                        <BindableLayout.ItemTemplate>
+                            <DataTemplate>
+                                <VerticalStackLayout>
+                                    <VerticalStackLayout.GestureRecognizers>
+                                        <TapGestureRecognizer Tapped="QuestListing_Tapped"/>
+                                    </VerticalStackLayout.GestureRecognizers>
+                                    <Label
+                                        Text="{Binding When}"
+                                        FontAttributes="Bold"/>
+                                    <Label
+                                        Text="{Binding Address}"
+                                        HorizontalOptions="Start"/>
+                                    <Label
+                                        Text="{Binding Description}"/>
+
+                                    <BoxView
+                                        HeightRequest="1"
+                                        Color="Gray"
+                                        Margin="0, 10"/>
+                                </VerticalStackLayout>
+                            </DataTemplate>
+                        </BindableLayout.ItemTemplate>
+                    </VerticalStackLayout>
+                </ScrollView>
+            </RefreshView>
+        </Frame>
+
+        <Button
+            Grid.Row="2"
+            x:Name="AddQuestButton"
+            Text="Add Quest"
+            Clicked="AddQuestButton_Clicked"/>
+    </Grid>
+</ContentPage>
