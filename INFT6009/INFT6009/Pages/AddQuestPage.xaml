@@ -4,9 +4,29 @@
              x:Class="INFT6009.Pages.AddQuestPage"
              Title="AddQuestPage">
     <VerticalStackLayout>
-        <Label 
-            Text="Welcome to .NET MAUI!"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
+        <Entry
+            Placeholder="Address: "
+            Text="{Binding Address}"/>
+
+        <Editor
+            Placeholder="Description: "
+            Text="{Binding Description}"/>
+
+        <DatePicker
+            Date="{Binding Date}"/>
+
+        <TimePicker
+            Time="{Binding Time}"/>
+
+        <Label
+            x:Name="ErrorLabel"
+            TextColor="Red"/>
+
+
+        <Button
+            x:Name="SaveButton"
+            Text="Save"
+            Clicked="SaveButton_Clicked"/>
+
     </VerticalStackLayout>
 </ContentPage>

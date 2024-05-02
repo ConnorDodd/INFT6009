@@ -1,24 +1,29 @@
-﻿namespace INFT6009
+﻿using INFT6009.Models;
+using INFT6009.Pages;
+
+namespace INFT6009
 {
     public partial class MainPage : ContentPage
     {
-        int count = 0;
+        QuestModel model;
 
         public MainPage()
         {
             InitializeComponent();
+
+            model = new QuestModel();
+            //Set default values, best practice to have dates set to now so the user has minimal scrolling to change
+            model.Date = DateTime.Now;
+            model.Time = model.Date.TimeOfDay;
         }
 
-        private void OnCounterClicked(object sender, EventArgs e)
+
+        private void NewQuestButton_Clicked(object sender, EventArgs e)
         {
-            count++;
-
-            if (count == 1)
-                CounterBtn.Text = $"Clicked {count} time";
-            else
-                CounterBtn.Text = $"Clicked {count} times";
-
-            SemanticScreenReader.Announce(CounterBtn.Text);
+            //Passes the model to the new page
+            //Because this is a reference to the same object that is stored here (rather than a clone) any changes made on
+            //the other page will apply to the reference here as well
+            Shell.Current.Navigation.PushAsync(new AddQuestPage(model));
         }
     }
 
