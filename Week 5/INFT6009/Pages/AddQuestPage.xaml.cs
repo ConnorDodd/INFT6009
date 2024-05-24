@@ -38,4 +38,9 @@ public partial class AddQuestPage : ContentPage
 		//Close page 
 		Shell.Current.Navigation.PopAsync();
 	}
+
+    private void CancelButton_Clicked(object sender, EventArgs e)
+    {
+
+    }
 }

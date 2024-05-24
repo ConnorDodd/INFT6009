@@ -27,19 +27,6 @@
         <Setter Property="CornerRadius" Value="0" />
         <Setter Property="BorderColor" Value="{StaticResource PrimaryHighlight}"/>
         <Setter Property="BorderWidth" Value="4"/>
-
-        <!--<Setter Property="VisualStateManager.VisualStateGroups">
-            <VisualStateGroupList>
-                <VisualStateGroup Name="CommonStates">
-                    <VisualState Name="Normal" />
-                    <VisualState Name="Focused">
-                        <VisualState.Setters>
-                            <Setter Property="TranslationY" Value="5" />
-                        </VisualState.Setters>
-                    </VisualState>
-                </VisualStateGroup>
-            </VisualStateGroupList>
-        </Setter>-->
         <Setter Property="Shadow">
             <Setter.Value>
                 <Shadow

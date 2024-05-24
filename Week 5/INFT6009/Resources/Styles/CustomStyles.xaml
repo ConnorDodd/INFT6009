@@ -3,4 +3,119 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="INFT6009.Resources.Styles.CustomStyles">
 
+    <!--Define some Colors to re-use, building a small set and re-using these helps build consistent styling-->
+    <Color x:Key="Background">#FCF5E5</Color>
+    <Color x:Key="EntryBackgroundColor">#FFFFFF</Color>
+    <Color x:Key="Primary">#731518</Color>
+    <Color x:Key="PrimaryHighlight">#ffbf00</Color>
+    <Color x:Key="PrimaryHighlightText">#ffcf40</Color>
+    <Color x:Key="Highlight">#AC1F24</Color>
+    <Color x:Key="TextColor">#111012</Color>
+
+    <Shadow x:Key="BasicDropShadow"
+            Brush="Black"
+            Offset="10, 5"
+            Radius="5"
+            Opacity="0.2" />
+
+    <!--Generic Styles-->
+    <Style TargetType="Page" ApplyToDerivedTypes="True">
+        <Setter Property="BackgroundColor" Value="{StaticResource Background}"/>
+    </Style>
+
+    <Style TargetType="Button">
+        <Setter Property="BackgroundColor" Value="{StaticResource Primary}" />
+        <Setter Property="TextColor" Value="{StaticResource PrimaryHighlightText}" />
+        <Setter Property="HeightRequest" Value="50" />
+        <Setter Property="Margin" Value="10,10,10,0" />
+        <Setter Property="HorizontalOptions" Value="FillAndExpand" />
+        <Setter Property="FontAttributes" Value="Bold" />
+
+        <Setter Property="CornerRadius" Value="0" />
+        <Setter Property="BorderColor" Value="{StaticResource PrimaryHighlight}"/>
+        <Setter Property="BorderWidth" Value="4"/>
+        <Setter Property="Shadow" Value="{StaticResource BasicDropShadow}"/>
+    </Style>
+
+    <Style TargetType="Label">
+        <Setter Property="TextColor" Value="{StaticResource TextColor}"/>
+    </Style>
+
+    <Style TargetType="Entry">
+        <Setter Property="BackgroundColor" Value="{StaticResource EntryBackgroundColor}" />
+        <Setter Property="HeightRequest" Value="50" />
+        <Setter Property="Margin" Value="10,5" />
+        <Setter Property="HorizontalOptions" Value="FillAndExpand" />
+        <Setter Property="Shadow" Value="{StaticResource BasicDropShadow}"/>
+    </Style>
+
+    <Style TargetType="Editor">
+        <Setter Property="BackgroundColor" Value="{StaticResource EntryBackgroundColor}" />
+        <Setter Property="Margin" Value="10,5" />
+        <Setter Property="HorizontalOptions" Value="FillAndExpand" />
+        <Setter Property="Shadow" Value="{StaticResource BasicDropShadow}"/>
+    </Style>
+
+    <Style TargetType="DatePicker">
+        <Setter Property="BackgroundColor" Value="{StaticResource EntryBackgroundColor}" />
+        <Setter Property="Margin" Value="10,5" />
+        <Setter Property="HeightRequest" Value="50" />
+        <Setter Property="HorizontalOptions" Value="Fill" />
+        <Setter Property="Shadow" Value="{StaticResource BasicDropShadow}"/>
+    </Style>
+
+    <Style TargetType="TimePicker">
+        <Setter Property="BackgroundColor" Value="{StaticResource EntryBackgroundColor}" />
+        <Setter Property="Margin" Value="10,5" />
+        <Setter Property="HorizontalOptions" Value="Fill" />
+        <Setter Property="Shadow" Value="{StaticResource BasicDropShadow}"/>
+    </Style>
+
+    <Style TargetType="RadioButton">
+        <Setter Property="FontAttributes" Value="Bold"/>
+        <Setter Property="TextColor" Value="{StaticResource TextColor}"/>
+    </Style>
+
+    <Style TargetType="ActivityIndicator">
+        <Setter Property="Color" Value="{StaticResource Highlight}"/>
+    </Style>
+
+    <!--Named Styles-->
+    <Style TargetType="Label" x:Key="LinkLabel">
+        <Setter Property="TextColor" Value="{StaticResource Highlight}" />
+        <Setter Property="Padding" Value="20" />
+        <Setter Property="HorizontalOptions" Value="CenterAndExpand" />
+    </Style>
+
+    <Style TargetType="Label" x:Key="HeaderLabel">
+        <Setter Property="FontFamily" Value="BlackChancery" />
+        <Setter Property="FontSize" Value="32" />
+    </Style>
+
+    <Style TargetType="Label" x:Key="EntryLabel">
+        <Setter Property="FontAttributes" Value="Bold" />
+        <Setter Property="VerticalOptions" Value="Center" />
+    </Style>
+
+    <Style TargetType="Label" x:Key="ErrorLabel">
+        <Setter Property="FontAttributes" Value="Italic" />
+        <Setter Property="TextColor" Value="{StaticResource Highlight}" />
+    </Style>
+
+    <Style TargetType="Layout" x:Key="HeaderLayout" ApplyToDerivedTypes="True">
+        <Setter Property="Padding" Value="10, 10, 0, 0"/>
+        <Setter Property="HeightRequest" Value="48" />
+        <Setter Property="BackgroundColor" Value="{StaticResource Background}"/>
+    </Style>
+
+    <Style TargetType="Layout" x:Key="BodyLayout" ApplyToDerivedTypes="True">
+        <Setter Property="Padding" Value="15, 10"/>
+        <Setter Property="HorizontalOptions" Value="Fill"/>
+    </Style>
+
+    <Style TargetType="Button" x:Key="CancelButton">
+        <Setter Property="BackgroundColor" Value="{StaticResource EntryBackgroundColor}"/>
+        <Setter Property="TextColor" Value="{StaticResource TextColor}"/>
+    </Style>
+
 </ResourceDictionary>

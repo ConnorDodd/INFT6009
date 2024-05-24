@@ -25,6 +25,11 @@ namespace INFT6009
             //the other page will apply to the reference here as well
             Shell.Current.Navigation.PushAsync(new AddQuestPage(model));
         }
+
+        private void ShowLoginButton_Clicked(object sender, EventArgs e)
+        {
+            Shell.Current.Navigation.PushAsync(new LoginPage());
+        }
     }
 
 }
