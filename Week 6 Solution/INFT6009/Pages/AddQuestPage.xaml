@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="INFT6009.Pages.AddQuestPage"
+             Title="AddQuestPage">
+    <ScrollView>
+        <VerticalStackLayout
+            Style="{StaticResource BodyLayout}">
+        
+            <Entry
+                Placeholder="Address: "
+                Text="{Binding Address}"/>
+
+            <Editor
+                Placeholder="Description: "
+                HeightRequest="256"
+                Text="{Binding Description}"/>
+
+            <Grid
+                Padding="15">
+                <!--Define each Row and Column-->
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="50"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+
+                <!--Note the Labels use the Style that we defined earlier in ResourceDictionary-->
+                <Label
+                    Style="{StaticResource EntryLabel}"
+                    Grid.Column="0"
+                    Grid.Row="0"
+                    Text="Date: "/>
+                <DatePicker
+                    Grid.Column="1"
+                    Grid.Row="0"
+                    HorizontalOptions="Fill"
+                    Date="{Binding Date}"/>
+            
+                <Label
+                    Style="{StaticResource EntryLabel}"
+                    Grid.Column="0"
+                    Grid.Row="1"
+                    Text="Time: "/>
+                <TimePicker
+                    Grid.Column="1"
+                    Grid.Row="1"
+                    HorizontalOptions="Fill"
+                    Time="{Binding Time}"/>
+            </Grid>
+
+            <Label
+                x:Name="ErrorLabel"
+                TextColor="Red"/>
+
+            <FlexLayout
+                HorizontalOptions="Fill"
+                Direction="Row"
+                JustifyContent="SpaceEvenly">
+            
+                <Button
+                    Style="{StaticResource CancelButton}"
+                    x:Name="CancelButton"
+                    Text="Cancel"
+                    Clicked="CancelButton_Clicked"/>
+
+                <Button
+                    x:Name="SaveButton"
+                    Text="Save"
+                    Clicked="SaveButton_Clicked"/>
+            </FlexLayout>
+
+        </VerticalStackLayout> 
+    </ScrollView>
+</ContentPage>
