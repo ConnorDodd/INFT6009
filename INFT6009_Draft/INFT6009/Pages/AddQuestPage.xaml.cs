@@ -65,5 +65,15 @@ public partial class AddQuestPage : ContentPage
             AddressEntry.Text = placemark.ToString();
         else
             AddressEntry.Text = "Unspecified Address";
+
+        var pin = new Microsoft.Maui.Controls.Maps.Pin
+        {
+            Label = "Quest",
+            Address = placemark?.ToString() ?? "Unspecified",
+            Location = new Location(location.Latitude, location.Longitude),
+            Type = PinType.Generic
+        };
+
+        MapControl.Pins.Add(pin);
     }
 }

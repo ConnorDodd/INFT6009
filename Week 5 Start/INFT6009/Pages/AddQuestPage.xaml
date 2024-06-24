@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="INFT6009.Pages.AddQuestPage"
+             Title="AddQuestPage">
+    <VerticalStackLayout>
+        <Entry
+            Placeholder="Address: "
+            Text="{Binding Address}"/>
+
+        <Editor
+            Placeholder="Description: "
+            Text="{Binding Description}"/>
+
+        <DatePicker
+            Date="{Binding Date}"/>
+
+        <TimePicker
+            Time="{Binding Time}"/>
+
+        <Label
+            x:Name="ErrorLabel"
+            TextColor="Red"/>
+
+
+        <Button
+            x:Name="SaveButton"
+            Text="Save"
+            Clicked="SaveButton_Clicked"/>
+
+    </VerticalStackLayout>
+</ContentPage>

@@ -5,15 +5,18 @@
              Title="LoginPage">
     <ScrollView>
         <VerticalStackLayout
-        VerticalOptions="Center"
-        Style="{StaticResource BodyLayout}">
+            VerticalOptions="Center"
+            Style="{StaticResource BodyLayout}">
 
             <Image
-            Source="logo_fetch.png"/>
-            <Entry x:Name="EntryEmail" Placeholder="Email" 
-               Text="connor.dodd19@gmail.com"/>
-            <Entry x:Name="EntryPassword" Placeholder="Password" IsPassword="True"
-               Text="Test123"/>
+                Source="logo_fetch.png"/>
+            <Entry
+                x:Name="EntryEmail"
+                Placeholder="Email"/>
+            <Entry
+                x:Name="EntryPassword"
+                Placeholder="Password"
+                IsPassword="True"/>
 
             <Button 
                 Text="Login" 

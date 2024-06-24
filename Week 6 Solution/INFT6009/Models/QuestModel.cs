@@ -14,5 +14,6 @@ namespace INFT6009.Models
         public string Address { get; set; }
         public TimeSpan Time { get; set; }
         public DateTime Date { get; set; }
+        public string ImageSource { get; set; }
     }
 }
