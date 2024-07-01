@@ -1,0 +1,77 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="INFT6009.MainPage"
+             BackgroundColor="{StaticResource Background}"
+             xmlns:services="clr-namespace:INFT6009.Services">
+
+    <ScrollView>
+        <VerticalStackLayout
+            Padding="30,0"
+            Spacing="25">
+
+            <Image
+                WidthRequest="200"
+                Source="logo_fetch.png"/>
+
+            <!--Specify the list of objects to display (from QuestViewModel)-->
+            <VerticalStackLayout
+                BindableLayout.ItemsSource="{Binding Quests}">
+                <!--Provide an error message if there are no quests saved  to display yet-->
+                <BindableLayout.EmptyView>
+                    <StackLayout>
+                        <Label
+                            Text="There is no current quests to display"
+                            Style="{StaticResource ErrorLabel}"/>
+                    </StackLayout>
+                </BindableLayout.EmptyView>
+                <!--Define the template to use for each object-->
+                <BindableLayout.ItemTemplate>
+                    <DataTemplate>
+                        <!--Make a pretty border around the layout-->
+                        <Border
+                            Stroke="{StaticResource Primary}"
+                            StrokeThickness="2"
+                            Background="{StaticResource EntryBackgroundColor}"
+                            Padding="8"
+                            Margin="0, 2"
+                            StrokeShape="RoundRectangle 10,10,0,10">
+                            <VerticalStackLayout>
+                                <!--ADD GESTURERECOGNIZER HERE-->
+                                <!--Add a tap event to the layout so we can select the object-->
+                                <VerticalStackLayout.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="QuestListing_Tapped"/>
+                                </VerticalStackLayout.GestureRecognizers>
+                                <Label>
+                                    <Label.FormattedText>
+                                        <!--Use FormattedText and StringFormat to nicely 
+                                        display the formatted date and time-->
+                                        <FormattedString>
+                                            <Span
+                                                Text="{Binding Time, StringFormat='{0:hh\\:mm}'}"
+                                                FontAttributes="Bold"/>
+                                            <Span Text=" - " />
+                                            <Span 
+                                                Text="{Binding Date, StringFormat='{0:dd/MM/yyyy}'}"
+                                                FontAttributes="Bold"/>
+                                        </FormattedString>
+                                    </Label.FormattedText>
+                                </Label>
+                                <Label
+                                    Text="{Binding Description}"/>
+                            </VerticalStackLayout>
+                        </Border>
+                    </DataTemplate>
+                </BindableLayout.ItemTemplate>
+            </VerticalStackLayout>
+
+            <Button
+                x:Name="NewQuestButton"
+                Text="Create New Quest" 
+                Clicked="NewQuestButton_Clicked"
+                HorizontalOptions="Fill"/>
+            
+        </VerticalStackLayout>
+    </ScrollView>
+
+</ContentPage>
