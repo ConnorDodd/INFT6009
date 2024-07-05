@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="INFT6009.Pages.AddQuestPage"
+             xmlns:maps="http://schemas.microsoft.com/dotnet/2021/maui/maps"
+             Title="AddQuestPage">
+    <ScrollView>
+        <VerticalStackLayout
+            Style="{StaticResource BodyLayout}">
+
+            <maps:Map
+                x:Name="MapControl"
+                HorizontalOptions="FillAndExpand"
+                IsShowingUser="True"
+                IsTrafficEnabled="False"
+                Margin="10"
+                MapClicked="MapControl_MapClicked"
+                HeightRequest="250"/>
+
+            <Button
+                x:Name="LocationButton"
+                Text="Get Location"
+                Clicked="LocationButton_Clicked"/>
+
+            <Entry
+                Placeholder="Address: "
+                Text="{Binding Address}"/>
+
+            <Editor
+                Placeholder="Description: "
+                HeightRequest="256"
+                Text="{Binding Description}"/>
+
+            <Grid
+                Padding="15">
+                <!--Define each Row and Column-->
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="50"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+
+                <!--Note the Labels use the Style that we defined earlier in ResourceDictionary-->
+                <Label
+                    Style="{StaticResource EntryLabel}"
+                    Grid.Column="0"
+                    Grid.Row="0"
+                    Text="Date: "/>
+                <DatePicker
+                    Grid.Column="1"
+                    Grid.Row="0"
+                    HorizontalOptions="Fill"
+                    Date="{Binding Date}"/>
+            
+                <Label
+                    Style="{StaticResource EntryLabel}"
+                    Grid.Column="0"
+                    Grid.Row="1"
+                    Text="Time: "/>
+                <TimePicker
+                    Grid.Column="1"
+                    Grid.Row="1"
+                    HorizontalOptions="Fill"
+                    Time="{Binding Time}"/>
+            </Grid>
+
+            <Frame
+                BorderColor="Black"
+                WidthRequest="256"
+                HeightRequest="256"
+                Padding="0"
+                CornerRadius="14">
+                <Frame.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="AddImageFrame_Tapped"/>
+                </Frame.GestureRecognizers>
+
+                <AbsoluteLayout>
+                    <Label
+                        AbsoluteLayout.LayoutBounds="0, 0, 1, 1"
+                        AbsoluteLayout.LayoutFlags="All"
+                        HorizontalOptions="Center"
+                        VerticalOptions="Center"
+                        FontAttributes="Bold"
+                        Text="Add an Image"/>
+                    <Image
+                        x:Name="QuestImage"
+                        Source="{Binding ImageSource}"
+                        Aspect="AspectFill"
+                        AbsoluteLayout.LayoutBounds="0, 0, 1, 1"
+                        AbsoluteLayout.LayoutFlags="All"/>
+                </AbsoluteLayout>
+
+            </Frame>
+
+            <Label
+                x:Name="ErrorLabel"
+                TextColor="Red"/>
+
+            <Grid
+                Margin="0, 0, 0, 30"
+                ColumnDefinitions="*, *">
+                <!--Only display either cancel OR delete button at once, so they are in the same column-->
+                
+                <!--Set IsVisible to False by default, then use a datatrigger to set it True if
+                the quest has NOT been saved-->
+                <Button
+                    Grid.Column="0"
+                    IsVisible="False"
+                    Style="{StaticResource CancelButton}"
+                    x:Name="CancelButton"
+                    Text="Cancel"
+                    Clicked="CancelButton_Clicked">
+                    <Button.Triggers>
+                        <DataTrigger
+                            TargetType="Button"
+                            Binding="{Binding Id}"
+                            Value="0">
+                            <Setter
+                                Property="IsVisible"
+                                Value="True"/>
+                        </DataTrigger>
+                    </Button.Triggers>
+                </Button>
+                <!--Set IsVisible to True by default, then use a datatrigger to set it False if
+                the quest HAS been saved-->
+                <Button
+                    Grid.Column="0"
+                    Style="{StaticResource CancelButton}"
+                    x:Name="DeleteButton"
+                    Text="Delete"
+                    TextColor="{StaticResource Primary}"
+                    Clicked="DeleteButton_Clicked">
+                    <Button.Triggers>
+                        <DataTrigger
+                            TargetType="Button"
+                            Binding="{Binding Id}"
+                            Value="0">
+                            <Setter
+                                Property="IsVisible"
+                                Value="False"/>
+                        </DataTrigger>
+                    </Button.Triggers>
+                </Button>
+
+                <Button
+                    Grid.Column="1"
+                    x:Name="SaveButton"
+                    Text="Save"
+                    Clicked="SaveButton_Clicked"/>
+            </Grid>
+        </VerticalStackLayout> 
+    </ScrollView>
+</ContentPage>

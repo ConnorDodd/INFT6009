@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="INFT6009.Layouts.QuestListLayout">
+    <!--Make a pretty border around the layout-->
+    <Border
+        Stroke="{StaticResource Primary}"
+        StrokeThickness="2"
+        Background="{StaticResource EntryBackgroundColor}"
+        Padding="8"
+        Margin="0, 2"
+        StrokeShape="RoundRectangle 10,10,0,10">
+        <VerticalStackLayout>
+            <!--Add a tap event to the layout so we can select the object-->
+            <VerticalStackLayout.GestureRecognizers>
+                <TapGestureRecognizer Tapped="QuestListing_Tapped"/>
+            </VerticalStackLayout.GestureRecognizers>
+            <Label>
+                <Label.FormattedText>
+                    <!--Use FormattedText and StringFormat to nicely 
+                    display the formatted date and time-->
+                    <FormattedString>
+                        <Span
+                            Text="{Binding Time, StringFormat='{0:hh\\:mm}'}"
+                            FontAttributes="Bold"/>
+                        <Span Text=" - " />
+                        <Span 
+                            Text="{Binding Date, StringFormat='{0:dd/MM/yyyy}'}"
+                            FontAttributes="Bold"/>
+                    </FormattedString>
+                </Label.FormattedText>
+            </Label>
+            <Label
+                Text="{Binding Description}"/>
+        </VerticalStackLayout>
+    </Border>
+</ContentView>

@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="INFT6009.MainPage"
+             BackgroundColor="{StaticResource Background}"
+             xmlns:layouts="clr-namespace:INFT6009.Layouts">
+    <Shell.TitleView>
+        <HorizontalStackLayout
+         Style="{StaticResource HeaderLayout}">
+            <Label
+             Style="{StaticResource HeaderLabel}"
+             Text="Fetch"/>
+        </HorizontalStackLayout>
+    </Shell.TitleView>
+    <ScrollView>
+        <VerticalStackLayout
+            Padding="30,0"
+            Spacing="25">
+
+            <Image
+                WidthRequest="200"
+                Source="logo_fetch.png"/>
+
+            <!--Specify the list of objects to display (from QuestViewModel)-->
+            <VerticalStackLayout
+                BindableLayout.ItemsSource="{Binding Quests}">
+                <!--Provide an error message if there are no quests saved  to display yet-->
+                <BindableLayout.EmptyView>
+                    <StackLayout>
+                        <Label
+                            Text="There is no current quests to display"
+                            Style="{StaticResource ErrorLabel}"/>
+                    </StackLayout>
+                </BindableLayout.EmptyView>
+                <!--Define the template to use for each object-->
+                <BindableLayout.ItemTemplate>
+                    <DataTemplate>
+                        <layouts:QuestListLayout/>
+                    </DataTemplate>
+                </BindableLayout.ItemTemplate>
+            </VerticalStackLayout>
+
+            <Button
+                x:Name="NewQuestButton"
+                Text="Create New Quest" 
+                Clicked="NewQuestButton_Clicked"
+                HorizontalOptions="Fill"/>
+            
+        </VerticalStackLayout>
+    </ScrollView>
+
+</ContentPage>

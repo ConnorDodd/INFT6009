@@ -14,7 +14,7 @@ namespace INFT6009.Services
 {
     public class FirebaseStorageManager
     {
-        private static readonly string _url = $"https://firestore.googleapis.com/v1/projects/inft6009-2777f/databases/(default)/documents/";
+        private static readonly string _url = $"https://firestore.googleapis.com/v1/projects/inft6009-d3748/databases/(default)/documents/";
         static HttpClient client = new HttpClient();
 
         static FirebaseStorageManager()

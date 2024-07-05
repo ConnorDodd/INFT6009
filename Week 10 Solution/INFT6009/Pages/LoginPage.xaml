@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="INFT6009.Pages.LoginPage"
+             xmlns:converters="clr-namespace:INFT6009.Converters"
+             Title="LoginPage">
+    <ScrollView>
+        <VerticalStackLayout
+            VerticalOptions="Center"
+            Style="{StaticResource BodyLayout}">
+
+            <Image
+                Source="logo_fetch.png"/>
+            <Entry
+                x:Name="EntryEmail"
+                Placeholder="Email"/>
+            <Entry
+                x:Name="EntryPassword"
+                Placeholder="Password"
+                IsPassword="True"/>
+
+            <HorizontalStackLayout
+                HorizontalOptions="Center">
+                <Label
+                    Style="{StaticResource EntryLabel}"
+                    FontSize="12"
+                    Padding="0, 0, 10, 0"
+                    Text="Remember my details: "/>
+                <CheckBox
+                    x:Name="RememberMeCheckbox"/>
+            </HorizontalStackLayout>
+
+            <!--Show a spinner when the page is loading.
+            IsRunning just means the spinner is moving as opposed to frozen.-->
+            <ActivityIndicator
+                IsRunning="True"
+                IsVisible="{Binding IsLoading}"/>
+
+            <Button
+                Text="Login"
+                IsEnabled="{Binding IsLoading, Converter={converters:BoolInvertConverter}}"
+                FontAttributes="Bold"
+                Clicked="LoginButton_Clicked"/>
+
+            <Label
+                Text="Don't have an account? Create one now!"
+                HorizontalOptions="Center"
+                Padding="20"
+                Style="{StaticResource LinkLabel}">
+                <Label.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="RegisterLabel_Tapped"></TapGestureRecognizer>
+                </Label.GestureRecognizers>
+            </Label>
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

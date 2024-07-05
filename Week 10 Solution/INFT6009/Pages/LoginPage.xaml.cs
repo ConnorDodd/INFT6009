@@ -9,9 +9,22 @@ public partial class LoginPage : ContentPage
         PASSWORD_KEY = "inft6009passwordkey",
         REMEMBER_ME_KEY = "inft6009remembermekey";
 
+    private bool _isLoading;
+    public bool IsLoading
+    {
+        get { return _isLoading; }
+        set
+        {
+            _isLoading = value;
+            OnPropertyChanged("IsLoading");
+        }
+    }
+
 	public LoginPage()
 	{
 		InitializeComponent();
+
+        BindingContext = this;
 	}
 
     //When page appears after initialization is complete, update values from preferences.
@@ -27,12 +40,15 @@ public partial class LoginPage : ContentPage
 
     private async void LoginButton_Clicked(object sender, EventArgs e)
     {
+        IsLoading = true;
+
         //If login failed, display an error and return
         if (!await FirebaseAuthManager.Login(EntryEmail.Text, EntryPassword.Text))
         {
             await Application.Current.MainPage.
                 DisplayAlert("Error", "Could not log in, please check credentials and try again", "Ok");
             EntryPassword.Text = "";
+            IsLoading = false;
             return;
         }
 
@@ -54,10 +70,12 @@ public partial class LoginPage : ContentPage
 
         DisplayAlert("Welcome", $"Hello {FirebaseAuthManager.CurrentUser.FirstName} {FirebaseAuthManager.CurrentUser.LastName}!", "Ok");
 
+        IsLoading = false;
         //Remove page from stack (close page)
 		Shell.Current.Navigation.PopAsync();
     }
 
+        //NotificationManager.ShowToast($"Hello {FirebaseAuthManager.CurrentUser.FirstName} {FirebaseAuthManager.CurrentUser.LastName}!");
     private void RegisterLabel_Tapped(object sender, TappedEventArgs e)
     {
         Shell.Current.Navigation.PushAsync(new RegisterPage());

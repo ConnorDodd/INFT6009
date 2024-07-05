@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="INFT6009.Pages.RegisterPage"
+             Title="RegisterPage">
+    <ScrollView>
+        <StackLayout VerticalOptions="CenterAndExpand" HorizontalOptions="FillAndExpand" Padding="20">
+            <Image
+                Source="logo_fetch.png"/>
+            <Entry x:Name="EntryFirstName" Placeholder="First Name" />
+            <Entry x:Name="EntryLastName" Placeholder="Last Name" />
+            <BoxView Color="Black" HeightRequest="1" HorizontalOptions="FillAndExpand" />
+            <Entry x:Name="EntryEmail" Placeholder="Email" />
+            <Entry x:Name="EntryPassword" Placeholder="Password" IsPassword="True" />
+            <Entry x:Name="EntryPasswordConfirm" Placeholder="Confirm Password" IsPassword="True" />
+
+            <HorizontalStackLayout
+                HorizontalOptions="CenterAndExpand"
+                RadioButtonGroup.GroupName="AccountTypes"
+                RadioButtonGroup.SelectedValue="{Binding AccountType}">
+                <RadioButton Content="FetchER" Value="fetcher"/>
+                <RadioButton Content="FetchEE" Value="fetchee"/>
+            </HorizontalStackLayout>
+
+            <Label
+                x:Name="ErrorLabel"
+                Style="{StaticResource ErrorLabel}"
+                HorizontalOptions="Center"/>
+
+            <Button 
+                Text="Register" 
+                FontAttributes="Bold"
+                Clicked="RegisterButton_Clicked"/>
+            
+            <Label
+                Text="Already have an account? Log in here!"
+                HorizontalOptions="Center"
+                Padding="20"
+                Style="{StaticResource LinkLabel}">
+                <Label.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="LoginLabel_Tapped"></TapGestureRecognizer>
+                </Label.GestureRecognizers>
+            </Label>
+        </StackLayout>
+    </ScrollView>
+</ContentPage>
